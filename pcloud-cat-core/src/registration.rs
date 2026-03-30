@@ -8,7 +8,7 @@
 //! [`icp_align`] folds the stream to produce a single
 //! [`Io<Error, RigidTransform>`] representing the full alignment.
 
-use std::rc::Rc;
+use std::sync::Arc;
 
 use comp_cat_rs::effect::io::Io;
 use comp_cat_rs::effect::stream::Stream;
@@ -171,7 +171,7 @@ pub fn icp_stream(
 
     Stream::unfold(
         init,
-        Rc::new(|state: IcpState| {
+        Arc::new(|state: IcpState| {
             Io::suspend(move || icp_step(state))
         }),
     )
@@ -202,7 +202,7 @@ pub fn icp_align(
 ) -> Io<Error, RigidTransform> {
     icp_stream(source, target, config).fold(
         RigidTransform::identity(),
-        Rc::new(|_acc, step: IcpStep| step.current_transform()),
+        Arc::new(|_acc, step: IcpStep| step.current_transform()),
     )
 }
 
