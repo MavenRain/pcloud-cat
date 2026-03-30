@@ -1,0 +1,3 @@
+[workspace]
+members = ["pcloud-cat-core", "pcloud-cat-viewer"]
+resolver = "3"

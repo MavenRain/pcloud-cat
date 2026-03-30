@@ -1,0 +1,21 @@
+[package]
+name = "pcloud-cat-core"
+version = "0.1.0"
+edition = "2024"
+description = "Point cloud processing on comp-cat-rs: ICP registration, normal estimation, anomaly detection"
+license = "MIT OR Apache-2.0"
+readme = "../README.md"
+keywords = ["point-cloud", "icp", "registration", "3d", "effects"]
+categories = ["algorithms", "mathematics", "science"]
+
+[dependencies]
+comp-cat-rs = "0.4"
+
+[dev-dependencies]
+proptest = "1"
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+needless_pass_by_value = "warn"
+manual_map = "warn"
