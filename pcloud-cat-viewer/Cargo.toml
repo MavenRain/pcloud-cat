@@ -2,7 +2,7 @@
 name = "pcloud-cat-viewer"
 version = "0.1.0"
 edition = "2024"
-description = "WASM-based 3D point cloud viewer using WebGL2"
+description = "WASM-based 3-D point cloud viewer using WebGL2"
 license = "MIT OR Apache-2.0"
 readme = "../README.md"
 
